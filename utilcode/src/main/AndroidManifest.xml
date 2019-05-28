@@ -1,16 +1,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.blankj.utilcode">
+    package="com.blankj.utilcode1">
+    <!--
+    编译报错：
+    Program type already present: com.blankj.utilcode.BuildConfig
+    应该是有2个lib 都是com.blankj.utilcode， 所以报错
+    【Solution】
+    将utilcode lib里面的manifest package 改成com.blankj.utilcode1
+
+    【refer】
+    https://stackoverflow.com/questions/50717588/program-type-already-present-buildconfig
+     -->
+
 
     <application>
         <activity
-            android:name=".util.PermissionUtils$PermissionActivity"
+            android:name="com.blankj.utilcode.util.PermissionUtils$PermissionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:multiprocess="true"
             android:theme="@style/ActivityTranslucent"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
 
         <provider
-            android:name=".util.Utils$FileProvider4UtilCode"
+            android:name="com.blankj.utilcode.util.Utils$FileProvider4UtilCode"
             android:authorities="${applicationId}.utilcode.provider"
             android:exported="false"
             android:grantUriPermissions="true"
